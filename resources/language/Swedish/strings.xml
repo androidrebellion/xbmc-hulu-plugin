@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+	<!--settings labels-->
+	<string id="30001">Hulu Användarnamn</string>
+	<string id="30002">Hulu Lösenord</string>
+	
+	<string id="30004">Kvalitet</string>
+	<string id="30015">Fråga</string>
+	<string id="30016">Hög</string>
+	<string id="30017">Normal</string>
+	<string id="30018">h264(ostabil)</string>
+	
+	<string id="30019">Ändra inte XBMC's upplösning</string>
+	
+	<string id="30003">Lägg ihop TV-kategorier</string>
+	<string id="30005">Endast serier med fulla avsnitt</string>
+	<string id="30006">Hämta seriebeskrivning (listningar blir långsammare)</string>
+	<string id="30007">Hämta avsnittshandling (listningar blir långsammare)</string>
+	<string id="30008">Om endast en säsong</string>
+	<string id="30009">Alltid</string>
+	<string id="30010">Aldrig</string>
+	<string id="30011">Lägg ihop säsonger</string>
+	
+	<string id="30012">Lägg ihop filmkategorier</string>
+	<string id="30013">Visa endast kompletta filmer</string>
+	<string id="30014">Hämta filmhandling (listningar blir långsammare)</string>
+	
+	<!--Home Menu-->
+	<string id="30030">Nyligen tillagda filmer</string>
+	<string id="30031">Filmer med högsta betyg</string>
+	<string id="30032">Mest populära videor idag</string>
+	<string id="30033">Mest populära videor denna vecka</string>
+	<string id="30034">Mest populära videor denna månad</string>
+	<string id="30035">Mest populära videor genom  tiderna</string>
+	<string id="30036">Sök</string>
+	<string id="30037">HD Galleri</string>
+	<string id="30038">Nyligen tillagda serier</string>
+	<!--<string id="20343">TV-Serier</string>(defined globally)-->
+	<!--<string id="342">Filmer</string>(defined globally)-->
+	
+	<!--Movies-->
+	<string id="30050">Alla filmer</string>
+	
+	<!--TV Shows-->
+	<string id="30070">Alla serier</string>
+	
+	<!--General-->
+	<string id="30090">Otillgänglig</string>
+	<string id="30095">Klipp</string>
+	<string id="30091">(klipp endast)</string>
+	<string id="30092">Klipp från</string>
+	<string id="30093">Inga klipp</string>
+	<string id="30094">Ingenting hittades för</string> <!--tvshowname/moviename-->
+</strings>

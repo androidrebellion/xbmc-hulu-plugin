@@ -3,14 +3,13 @@ import common
 import sys
 from BeautifulSoup import BeautifulSoup
 
+
 class Main:
 
     def __init__( self ):
         xbmcplugin.setContent(int(sys.argv[1]), 'tvshows')
         self.addListings()
         xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ))
-
-
 
     def addListings( self ):
         tree = BeautifulSoup(common.getHTML(common.args.url))

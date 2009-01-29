@@ -1,5 +1,6 @@
 import xbmcplugin
 import xbmcgui
+import xbmc
 
 import common
 
@@ -34,7 +35,7 @@ class Main:
             #ADD 'ALL SHOWS' to Main Category List
             if common.args.mode == "TV":
                 #space in string ' All Shows' ensures it is at top of sorted list
-                common.addDirectory(' All Shows', common.args.url, 'TV_List')
+                common.addDirectory(' '+xbmc.getLocalizedString(30070), common.args.url, 'TV_List')
                 xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ))
             elif common.args.mode.startswith("TV_cat"):
                 self.addShowsList() #if we're in a category view, add videos that match the selected category
@@ -92,26 +93,26 @@ class Main:
                     match = p.findall(json)
                     plot = match[0].replace('\\','')
                 except:
-                    plot="Unavaliable"
+                    plot=xbmc.getLocalizedString(30090)
                 try:
                     p = re.compile('channel: "(.+?)"[,}]')
                     match = p.findall(json)
                     genre = match[0]
                 except:
-                    genre="Unavaliable"
+                    genre=xbmc.getLocalizedString(30090)
                 #hopefully deleting this will help with xbox memory problems
                 del json
             else:
-                plot=genre="Unavaliable"
+                plot=genre=xbmc.getLocalizedString(30090)
             try:
                 if show.parent['class'] != "full-episode-icon":
-                    name += " (clips only)"
-                    genre += " (clips only)"
+                    name += ' '+xbmc.getLocalizedString(30091)
+                    genre += ' '+xbmc.getLocalizedString(30091)
                 elif common.args.url != common.BASE_TV_URL:
                     common.addDirectory(name, url, "TV_Seasons", art, icon, art, plot, genre)
             except:
-                name += " (clips only)"
-                genre += " (clips only) "
+                name += ' '+xbmc.getLocalizedString(30091)
+                genre += ' '+xbmc.getLocalizedString(30091)
                 if common.settings['only_full_episodes'] == False:
                     common.addDirectory(name, url, "TV_Seasons", art, icon, art, plot, genre)
         
@@ -141,8 +142,8 @@ class Main:
             for feed in rss:
                 if feed['href'].split('/')[-1]=='clips':
                     clipRSS = feed['href']
-            if clipRSS != None: #no clips exist
-                common.addDirectory('Clips', clipRSS, "TV_Clips")
+            if clipRSS != None:
+                common.addDirectory(xbmc.getLocalizedString(30095), clipRSS, "TV_Clips")
             xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ))
 
         else:
@@ -157,7 +158,7 @@ class Main:
             rss=tree.findAll('a', attrs={'class':'rss-link'})
             for feed in rss:
                 if feed['href'].split('/')[-1]=='clips': clipRSS = feed['href']
-            common.addDirectory('Clips', clipRSS, "TV_Clips")
+            common.addDirectory(xbmc.getLocalizedString(30095), clipRSS, "TV_Clips")
             xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ))
 
 
@@ -209,7 +210,7 @@ class Main:
 
 
     def addClipsList( self ):
-        name = common.args.name.replace(' (clips only)','')
+        name = common.args.name.replace(xbmc.getLocalizedString(30091),'')
         tree=BeautifulStoneSoup(common.getHTML(common.args.url))
         clips = tree.findAll('item')
         print clips

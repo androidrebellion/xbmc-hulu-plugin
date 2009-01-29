@@ -2,30 +2,31 @@
 <settings>
     
 	<!--general-->
-    <!--maybe later <setting id="front_page" type="enum" values="Ask|TV Shows|Movies" label="Front Page" default="0" />-->
-	<!--maybe later <setting id="quality" type="enum" values="Ask|High|Normal" label="Quality" default="0"/>-->
-	<!--<setting type="sep" />-->
-	<!--<setting id="use_proxy" type="bool" label="No GeoChecking (for users outside of the US)" default="false"/>-->
+	<setting type="sep" />
+	<setting id="quality" type="enum" lvalues="30015|30016|30017|30018" label="30004" default="0"/>
+	<setting id='resolution_hack' type ="bool" label="30019" default="0"/>
+	<setting type="sep" />
 	
 	<!--login-->
 	<setting type="sep" />
-	<setting id="login_name" type="text" label="Hulu Username" default=""/>
-	<setting id="login_pass" type="text" label="Hulu Password" enable="!eq(-1,)" default=""/>
+	<setting id="login_name" type="text" label="30001" default=""/>
+	<setting id="login_pass" type="text" label="30002" enable="!eq(-1,)" default=""/>
 	<setting type="sep" />
 	
 	<!--tv-->
 	<setting type="sep" />
-	<setting id="flat_tv_cats" type="bool" label="Flatten TV Categories" default="false"/>
-	<setting id="only_full_episodes" type="bool" label="Only Shows with Full Episodes" default="true"/>
-	<setting id="get_show_plot" type="bool" label="Get Show Description (listings will be slowed)" default="true"/>
-	<setting id="get_episode_plot" type="bool" label="Get Episode Plot (listings will be slowed)" default="true"/>
-	<setting id="flat_season" type="enum" values="If Only One Season|Always|Never" label="Flatten Seasons" default="0"/>
+	<setting id="flat_tv_cats" type="bool" label="30003" default="false"/>
+	<setting id="only_full_episodes" type="bool" label="30005" default="true"/>
+	<setting id="get_show_plot" type="bool" label="30006" default="true"/>
+	<setting id="get_episode_plot" type="bool" label="30007" default="true"/>
+	<setting id="flat_season" type="enum" lvalues="30008|30009|30010" label="30011" default="0"/>
 	<setting type="sep" />
 
 	<!--movies-->
 	<setting type="sep" />
-	<setting id="flat_movie_cats" type="bool" label="Flatten Movie Categories" default="false"/>
-	<setting id="only_full_movies" type="bool" label="Only show Complete Movies" default="true"/>
-	<setting id="get_movie_plot" type="bool" label="Get Movie Plot (listings will be slowed)" default="true"/>
+	<setting id="flat_movie_cats" type="bool" label="30012" default="false"/>
+	<setting id="only_full_movies" type="bool" label="30013" default="true"/>
+	<setting id="get_movie_plot" type="bool" label="30014" default="true"/>
+	<setting type="sep" />
 	
 </settings>

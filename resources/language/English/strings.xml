@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+	<!--settings labels-->
+	<string id="30001">Hulu Username</string>
+	<string id="30002">Hulu Password</string>
+	
+	<string id="30004">Quality</string>
+	<string id="30015">Ask</string>
+	<string id="30016">High</string>
+	<string id="30017">Normal</string>
+	<string id="30018">h264(buggy)</string>
+	
+	<string id="30019">Don't Change XBMC's Resolution</string>
+	
+	<string id="30003">Flatten TV Categories</string>
+	<string id="30005">Only Shows with Full Episodes</string>
+	<string id="30006">Get Show Description (listings will be slowed)</string>
+	<string id="30007">Get Episode Plot (listings will be slowed)</string>
+	<string id="30008">If Only One Season</string>
+	<string id="30009">Always</string>
+	<string id="30010">Never</string>
+	<string id="30011">Flatten Seasons</string>
+	
+	<string id="30012">Flatten Movie Categories</string>
+	<string id="30013">Only show Complete Movies</string>
+	<string id="30014">Get Movie Plot (listings will be slowed)</string>
+	
+	<!--Home Menu-->
+	<string id="30030">Recently Added Movies</string>
+	<string id="30031">Highest Rated Videos</string>
+	<string id="30032">Most Popular Videos Today</string>
+	<string id="30033">Most Popular Videos this Week</string>
+	<string id="30034">Most Popular Videos this Month</string>
+	<string id="30035">Most Popular Videos of All Time</string>
+	<string id="30036">Search</string>
+	<string id="30037">HD Gallery</string>
+	<string id="30038">Recently Added Shows</string>
+	<!--<string id="20343">TV Shows</string>(defined globally)-->
+	<!--<string id="342">Movies</string>(defined globally)-->
+	
+	<!--Movies-->
+	<string id="30050">All Movies</string>
+	
+	<!--TV Shows-->
+	<string id="30070">All Shows</string>
+	
+	<!--General-->
+	<string id="30090">Unavaliable</string>
+	<string id="30095">Clips</string>
+	<string id="30091">(clips only)</string>
+	<string id="30092">Clips From</string>
+	<string id="30093">No Clips</string>
+	<string id="30094">Nothing was found for</string> <!--tvshowname/moviename-->
+</strings>

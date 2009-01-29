@@ -1,5 +1,6 @@
 import xbmcplugin
 import xbmcgui
+import xbmc
 import sys
 import re
 import common
@@ -92,26 +93,26 @@ class Main:
                     match = p.findall(json)
                     plot = match[0].replace('\\','')
                 except:
-                    plot="Unavaliable"
+                    plot=xbmc.getLocalizedString(30090)
                 try:
                     p = re.compile('channel: "(.+?)"[,}]')
                     match = p.findall(json)
                     genre = match[0]
                 except:
-                    genre="Unavaliable"
+                    genre=xbmc.getLocalizedString(30090)
                 #hopefully deleting this will help with xbox memory problems
                 del json
             else:
-                plot=genre="Unavaliable"
+                plot=genre=xbmc.getLocalizedString(30090)
             try:
                 if movie.parent['class'] != "full-movie-icon":
-                    name += " (clips only)"
-                    genre = "(clips only) "+genre
+                    name += ' '+xbmc.getLocalizedString(30091)
+                    genre = xbmc.getLocalizedString(30091)+' '+genre
                 elif common.args.url != common.BASE_MOVIE_URL:
                     common.addDirectory(name, url, "Movie_Items", art, icon, art, plot, genre)
             except:
-                name += " (clips only)"
-                genre += " (clips only)"
+                name += ' '+xbmc.getLocalizedString(30091)
+                genre += ' '+xbmc.getLocalizedString(30091)
                 if common.settings['only_full_movies'] == False:
                     common.addDirectory(name, url, "Movie_Items", art, icon, art, plot, genre)
                     
@@ -128,15 +129,15 @@ class Main:
             link=tree.find('a', attrs={"class":'info_hover'})
             movieUrl = link['href']
             common.addDirectory(common.args.name, movieUrl, "Movie_play", common.args.fanart, common.args.fanart, common.args.fanart, common.args.plot, common.args.genre)
-            common.addDirectory('Clips from '+common.args.name.replace('(clips only)',''), common.args.url, 'Movie_Clips', common.args.fanart,common.args.fanart,common.args.fanart)
+            common.addDirectory(xbmc.getLocalizedString(30092)+' '+common.args.name.replace(xbmc.getLocalizedString(30091),''), common.args.url, 'Movie_Clips', common.args.fanart,common.args.fanart,common.args.fanart)
 
     def addClipsList( self ):
         tree=BeautifulSoup(common.getHTML(common.args.url))
         rssLink = tree.find('a', attrs={'class':'rss-link'})
         if rssLink == None:
-            xbmcgui.Dialog().ok('No Clips','Nothing was found for '+common.args.name)
+            xbmcgui.Dialog().ok(xbmc.getLocalizedString(30093),xbmc.getLocalizedString(30094)+' '+common.args.name)
         else:
-            name = common.args.name.replace(' (clips only)','')
+            name = common.args.name.replace(xbmc.getLocalizedString(30090),'')
             tree=BeautifulStoneSoup(common.getHTML(rssLink['href']))
             clips = tree.findAll('item')
             for clip in clips:

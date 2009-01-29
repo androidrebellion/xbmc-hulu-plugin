@@ -61,12 +61,11 @@ imagepath   = os.path.join(os.getcwd().replace(';', ''),'resources','images')
 
 settings={}
 #settings general
-"""
-if xbmcplugin.getSetting( "use_proxy" ) == "true" :
-    settings['use_proxy'] = True
+if xbmcplugin.getSetting( "resolution_hack" ) == "true" :
+    settings['resolution_hack'] = True
 else:
-    settings['use_proxy'] = False
-"""
+    settings['resolution_hack'] = False
+settings['quality'] = xbmcplugin.getSetting("quality")
 #settings login
 settings['login_name'] = xbmcplugin.getSetting( "login_name" )
 settings['login_pass'] = xbmcplugin.getSetting( "login_pass" )
@@ -119,8 +118,15 @@ else:
 """
 
 def cleanNames(string):
-    try:return string.replace("'","").replace(unicode(u'\u201c'), '"').replace(unicode(u'\u201d'), '"').replace(unicode(u'\u2019'),'\'').replace('&amp;','&').replace('&quot;','"')
-    except:return string
+    try:
+        string = string.replace("'","").replace(unicode(u'\u201c'), '"').replace(unicode(u'\u201d'), '"').replace(unicode(u'\u2019'),'\'').replace('&amp;','&').replace('&quot;','"')
+        return string
+        print 'tranlsated -- >'
+        print string
+    except:
+        'translated -- >'
+        print string
+        return string
 
 
 
@@ -188,18 +194,16 @@ def login():
                          ('Content-Type', 'application/x-www-form-urlencoded'),
                          ('User-Agent', 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.14) Gecko/20080404 Firefox/2.0.0.14'),
                          ('Connection', 'keep-alive')]
-    print 'username --> ' + settings['login_name']
-    print 'password --> ' + settings['login_pass']
     data =urllib.urlencode({"login":settings['login_name'],"password":settings['login_pass']})
     usock = opener.open(login_url, data)
     response = usock.read()
     usock.close()
     
-    print '\nHULU -- > These are the cookies we have received:'
+    print 'HULU -- > These are the cookies we have received:'
     for index, cookie in enumerate(cj):
-        print index+ '  :  '+ cookie
+        print 'HULU--> '+str(index)+': '+str(cookie)
         
-    print "\nHULU --> login_url response (we want 'ok=1'): " + response
+    print "HULU --> login_url response (we want 'ok=1'): " + response
     if response == 'ok=1':
         loggedIn = True
     else:

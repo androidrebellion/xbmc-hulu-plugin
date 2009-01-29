@@ -19,9 +19,8 @@ __version__ = "1.0"
 
 #temp#
 print "\n\n\n\n\n\n\nstart of HULU plugin\n\n\n\n\n\n"
-import xbmcgui
-try:print "common.args.mode -- > " + common.args.mode
-except: print 'no mode'
+try:print "HULU--> common.args.mode -- > " + common.args.mode
+except: print "HULU--> no mode has been defined"
 #end temp#
 
 def modes( ):
@@ -44,6 +43,7 @@ def modes( ):
             import resources.lib._hd as hd
             hd.Main()
         else:
+            import xbmcgui
             xbmcgui.Dialog().ok('common.args.mode',common.args.mode)
             print "unknown mode--> "+common.args.mode
 
@@ -52,6 +52,6 @@ def modes( ):
 if ( __name__ == "__main__" ):
         common.login ( )
         modes ( )
-        os.remove(common.COOKIEFILE)
+        #os.remove(common.COOKIEFILE)
         
 sys.modules.clear()

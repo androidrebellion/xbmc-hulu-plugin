@@ -35,28 +35,44 @@ class Main:
         #getRTMP
         video=smilSoup.findAll('video')
         streams=[]
+        selectedStream = None
+        
         #label streams
         for stream in video:
+            print common.settings['quality']
             print 'stream--> '+stream['profile']
             if "480K" in stream['src'] or "480k" in stream['src'] or "_480" in stream['src']:
-                streams.append([stream['profile'],stream['src']])
+                if common.settings['quality'] == '0':
+                    streams.append([stream['profile'],stream['src']])
+                elif common.settings['quality'] == '1':
+                    selectedStream = stream['src']
             elif "700K" in stream['src'] or "700k" in stream['src'] or "_700" in stream['src']:
-                streams.append([stream['profile'],stream['src']])
+                if common.settings['quality'] == '0':
+                    streams.append([stream['profile'],stream['src']])
+                elif common.settings['quality'] == '2':
+                    selectedStream = stream['src']
             elif "H264" in stream['src'] or "h264" in stream['src'] or 'H_264' in stream['src']:
-                streams.append([stream['profile'],stream['src']])
+                if common.settings['quality'] == '0':
+                    streams.append([stream['profile'],stream['src']])
+                elif common.settings['quality'] == '3':
+                    selectedStream = stream['src']
             elif "fake_" in stream['src']:
                 pass #these seem to freeze xbmc, let's ignore them.
             else:
                 streams.append(['unkown quality: '+stream['src'].split('/')[-1],stream['src']])
-        #ask user for quality level
-        quality=xbmcgui.Dialog().select('Please select a quality level:', [stream[0] for stream in streams])
-        print quality
-        if quality!=-1:
-            #common.args.mode="TV_Episode"
-            print "stream url"
-            print streams[quality][1]
-        #form proper streaming url
-            rawurl=streams[quality][1].replace('&amp;','&').replace('&lt;','<').replace('&gt;','>')
+
+        
+        if common.settings['quality'] == '0' or selectedStream == None:
+            #ask user for quality level
+            quality=xbmcgui.Dialog().select('Please select a quality level:', [stream[0] for stream in streams])
+            print quality
+            if quality!=-1:
+                selectedStream = streams[quality][1]
+                print "stream url"
+                print selectedStream
+        if selectedStream != None:
+            #form proper streaming url
+            rawurl=selectedStream.replace('&amp;','&').replace('&lt;','<').replace('&gt;','>')
             mainParts = rawurl.split("?")
             queryStringParts = mainParts[1].split("&")
             v9 = queryStringParts[0]
@@ -93,7 +109,6 @@ class Main:
 
             print "item url -- > " + newUrl
             print "playPath -- > " + fileName
-            xbmcgui.Dialog().ok('',common.args.mode)
             if common.args.mode == 'HD_play':
                 SWFPlayer = 'http://www.hulu.com/playerHD.swf'
             else:
@@ -106,14 +121,14 @@ class Main:
             item.setProperty("PlayPath", fileName)
             item.setProperty("PageURL", common.args.url)
 
-            #the following *almost* following works, and would be preferable
-            #but as is, after the first video plays it crashes xbmc.
-            playlist = xbmc.PlayList(1)
-            playlist.clear()
-            playlist.add(newUrl, item)
-            play=xbmc.Player().play(playlist)
-            xbmc.executebuiltin('XBMC.ActivateWindow(fullscreenvideo)')
+            if common.settings['resolution_hack']:
+                ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=newUrl,listitem=item)
+                xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ), updateListing=False,  succeeded=ok)
+            else:    
+                playlist = xbmc.PlayList(1)
+                playlist.clear()
+                playlist.add(newUrl, item)
+                play=xbmc.Player().play(playlist)
+                xbmc.executebuiltin('XBMC.ActivateWindow(fullscreenvideo)')
             
-            #ok=xbmcplugin.addDirectoryItem(handle=int(sys.argv[1]),url=newUrl,listitem=item)
-            #xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ), updateListing=False,  succeeded=ok)
             

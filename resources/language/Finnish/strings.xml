@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings> <!--  Finnish 1.2.2009 -->
+	<!--settings labels-->
+	<string id="30001">Hulu Käyttäjänimi</string>
+	<string id="30002">Hulu Salasana</string>
+	
+	<string id="30004">Kuvanlaatu</string>
+	<string id="30015">Kysy</string>
+	<string id="30016">Korkea</string>
+	<string id="30017">Normaali</string>
+	<string id="30018">h264(viallinen)</string>
+	
+	<string id="30019">Ei vaihdeta XBMC:n resoluutiota</string>
+	
+	<string id="30003">Tiivistä TV kategoriat</string>
+	<string id="30005">Vain Kaikkien jaksojen ohjelmat</string>
+	<string id="30006">Hae ohjelman selite (listaus hidastuu)</string>
+	<string id="30007">Hae jakson juoni (listaus hidastuu)</string>
+	<string id="30008">Jos yhdeltä tuotantokaudelta</string>
+	<string id="30009">Aina</string>
+	<string id="30010">Ei koskaan</string>
+	<string id="30011">Tiivistä tuotantokausi</string>
+	
+	<string id="30012">Tiivistä elokuva kategoriat</string>
+	<string id="30013">Näytä vain kokonaiset elokuvat</string>
+	<string id="30014">Hae elokuvan juoni (listaus hidastuu)</string>
+	
+	<!--Home Menu-->
+	<string id="30030">Uusimmat elokuvat</string>
+	<string id="30031">Arvostetuimmat videot</string>
+	<string id="30032">Tämän päivän suosituimmat videot</string>
+	<string id="30033">Tämän viikon suosituimmat videot</string>
+	<string id="30034">Tämän kuukauden suosituimmat videot</string>
+	<string id="30035">Kaikkien aikojen suosituimmat videot</string>
+	<string id="30036">Etsi</string>
+	<string id="30037">HD Galleria</string>
+	<string id="30038">Uusimmat ohjelmat</string>
+	<!--<string id="20343">TV ohjelmat</string>(defined globally)-->
+	<!--<string id="342">Elokuvat</string>(defined globally)-->
+	
+	<!--Movies-->
+	<string id="30050">Kaikki elokuvat</string>
+	
+	<!--TV Shows-->
+	<string id="30070">Kaikki ohjelmat</string>
+	
+	<!--General-->
+	<string id="30090">Ei saatavilla</string>
+	<string id="30095">Pätkät</string>
+	<string id="30091">(vain pätkät)</string>
+	<string id="30092">Pätkät ohjelmasta</string>
+	<string id="30093">Ei pätkiä</string>
+	<string id="30094">Ei löydetty</string> <!--tvshowname/moviename-->
+</strings>

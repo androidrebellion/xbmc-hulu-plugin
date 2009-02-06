@@ -46,9 +46,11 @@
 	
 	<!--General-->
 	<string id="30090">Otillgänglig</string>
-	<string id="30095">Klipp</string>
 	<string id="30091">(klipp endast)</string>
 	<string id="30092">Klipp från</string>
 	<string id="30093">Inga klipp</string>
 	<string id="30094">Ingenting hittades för</string> <!--tvshowname/moviename-->
+	<string id="30095">Klipp</string>
+   <string id="30096">Endast USA</string>
+   <string id="30097">Tråkigt nog stödjer HULU endast strömmar till USA för närvarande.</string>
 </strings>

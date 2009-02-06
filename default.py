@@ -50,7 +50,7 @@ def modes( ):
 
 
 if ( __name__ == "__main__" ):
-        common.login ( )
+        #common.login ( )
         modes ( )
         #os.remove(common.COOKIEFILE)
         

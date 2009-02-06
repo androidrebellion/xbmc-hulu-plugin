@@ -1,5 +1,6 @@
 import xbmc
 import xbmcplugin
+from xbmcgui import Dialog
 
 import common
 import os
@@ -7,8 +8,17 @@ import sys
 
 class Main:
     def __init__( self ):
-        self.addMainHomeItems()
-        xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ) )
+        if self.geoCheck():
+            self.addMainHomeItems()
+            xbmcplugin.endOfDirectory( handle=int( sys.argv[ 1 ] ) )
+
+    def geoCheck( self ):
+        html = common.getHTML(common.geo_check)
+        if 'valid' not in html:
+            Dialog().ok(xbmc.getLocalizedString(30096),xbmc.getLocalizedString(30097))
+            return False
+        return True
+            
 
     
     def addMainHomeItems( self ):
@@ -32,6 +42,4 @@ class Main:
         common.addDirectory(xbmc.getLocalizedString(30033), common.RSS_MOST_POP_WEEK, "RSS",xbmc.translatePath(os.path.join(common.imagepath,"rss_icon.png")), xbmc.translatePath(os.path.join(common.imagepath,"rss_icon.png")), genre = "rss")
         common.addDirectory(xbmc.getLocalizedString(30034), common.RSS_MOST_POP_MON, "RSS",xbmc.translatePath(os.path.join(common.imagepath,"rss_icon.png")), xbmc.translatePath(os.path.join(common.imagepath,"rss_icon.png")), genre = "rss")
         common.addDirectory(xbmc.getLocalizedString(30035), common.RSS_MOST_POP_ALL, "RSS",xbmc.translatePath(os.path.join(common.imagepath,"rss_icon.png")), xbmc.translatePath(os.path.join(common.imagepath,"rss_icon.png")), genre = "rss")
-        common.addDirectory(name=xbmc.getLocalizedString(30036),thumb=xbmc.translatePath(os.path.join(common.imagepath,"search_icon.png")),icon=xbmc.translatePath(os.path.join(common.imagepath,"search_icon.png")),genre="search")
-            
-
+        #common.addDirectory(name=xbmc.getLocalizedString(30036),thumb=xbmc.translatePath(os.path.join(common.imagepath,"search_icon.png")),icon=xbmc.translatePath(os.path.join(common.imagepath,"search_icon.png")),genre="search")

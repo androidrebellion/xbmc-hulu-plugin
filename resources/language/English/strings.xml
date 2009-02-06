@@ -51,4 +51,6 @@
 	<string id="30092">Clips From</string>
 	<string id="30093">No Clips</string>
 	<string id="30094">Nothing was found for</string> <!--tvshowname/moviename-->
+	<string id="30096">USA Only</string>
+	<string id="30097">Unfortunately, HULU only supports streaming to the US at this time.</string>
 </strings>

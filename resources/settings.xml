@@ -6,12 +6,12 @@
 	<setting id="quality" type="enum" lvalues="30015|30016|30017|30018" label="30004" default="0"/>
 	<setting id='resolution_hack' type ="bool" label="30019" default="0"/>
 	<setting type="sep" />
-	
-	<!--login-->
+
+	<!--login
 	<setting type="sep" />
 	<setting id="login_name" type="text" label="30001" default=""/>
 	<setting id="login_pass" type="text" label="30002" enable="!eq(-1,)" default=""/>
-	<setting type="sep" />
+	<setting type="sep" />-->
 	
 	<!--tv-->
 	<setting type="sep" />

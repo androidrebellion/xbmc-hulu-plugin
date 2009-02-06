@@ -45,6 +45,7 @@ login_url   = "https://secure.hulu.com/account/authenticate"
 profile_url = "http://www.hulu.com/users/profile/5129429"
 search_url  = "http://www.hulu.com/videos/search?query="
 rss_search  = "http://www.hulu.com/feed/search?query="
+geo_check   = "http://releasegeo.hulu.com/geoCheck"
 #define file locations
 COOKIEFILE  = "cookies.lwp"
 imagepath   = os.path.join(os.getcwd().replace(';', ''),'resources','images')

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<strings> <!--  Finnish 1.2.2009 -->
+<strings> <!--  Finnish 7.2.2009 -->
 	<!--settings labels-->
-	<string id="30001">Hulu Käyttäjänimi</string>
-	<string id="30002">Hulu Salasana</string>
+	<string id="30001">Hulu käyttäjänimi</string>
+	<string id="30002">Hulu salasana</string>
 	
 	<string id="30004">Kuvanlaatu</string>
 	<string id="30015">Kysy</string>
@@ -33,7 +33,7 @@
 	<string id="30034">Tämän kuukauden suosituimmat videot</string>
 	<string id="30035">Kaikkien aikojen suosituimmat videot</string>
 	<string id="30036">Etsi</string>
-	<string id="30037">HD Galleria</string>
+	<string id="30037">HD-Galleria</string>
 	<string id="30038">Uusimmat ohjelmat</string>
 	<!--<string id="20343">TV ohjelmat</string>(defined globally)-->
 	<!--<string id="342">Elokuvat</string>(defined globally)-->
@@ -51,4 +51,8 @@
 	<string id="30092">Pätkät ohjelmasta</string>
 	<string id="30093">Ei pätkiä</string>
 	<string id="30094">Ei löydetty</string> <!--tvshowname/moviename-->
+	<string id="30096">USA ainoastaan
+</string>
+	<string id="30097">Valitettavasti tällä hetkellä HULU tukee ainoastaan Yhdysvalloista tapahtuvaa katselua.</string>
+
 </strings>

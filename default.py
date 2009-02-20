@@ -23,6 +23,7 @@ try:print "HULU--> common.args.mode -- > " + common.args.mode
 except: print "HULU--> no mode has been defined"
 #end temp#
 
+
 def modes( ):
         if sys.argv[2]=='':
             import resources.lib._home as home

@@ -7,7 +7,7 @@ import common
 import sys
 import re
 
-from BeautifulSoup import BeautifulSoup, BeautifulStoneSoup
+from BeautifulSoup import MinimalSoup, BeautifulStoneSoup
 
 class Main:
 
@@ -73,7 +73,7 @@ class Main:
         xbmcplugin.addSortMethod(int(sys.argv[1]), xbmcplugin.SORT_METHOD_GENRE)
 
         html=common.getHTML(common.args.url)
-        tree=BeautifulSoup(html)
+        tree=MinimalSoup(html)
         shows=tree.findAll('a', attrs={"class":"show-thumb info_hover"})
         del html
         del tree
@@ -82,9 +82,12 @@ class Main:
             name  = show.contents[0].replace('&quot;','"').replace('&amp;','&')
             url   = show['href']
             tmp   = show['href'].split('/')[3]
-            thumb = "http://assets.hulu.com/shows/show_thumbnail_"+tmp.replace('-','_')+".jpg"
-            icon  = "http://assets.hulu.com/shows/show_thumbnail_"+tmp.replace('-','_')+".jpg"
             art   = "http://assets.hulu.com/shows/key_art_"+tmp.replace('-','_')+".jpg"
+            #thumb = "http://assets.hulu.com/shows/show_thumbnail_"+tmp.replace('-','_')+".jpg"
+            #icon  = "http://assets.hulu.com/shows/show_thumbnail_"+tmp.replace('-','_')+".jpg"
+            #Use higher res fanart (key_art) instead of lower res thumbs & icons
+            thumb = art
+            icon = art
             if common.settings['get_show_plot'] == True:
                 json = common.getHTML("http://www.hulu.com/shows/info/"+tmp)
                 try:
@@ -126,7 +129,7 @@ class Main:
 
 
     def addSeasonList( self ):
-        tree=BeautifulSoup(common.getHTML(common.args.url))  
+        tree=MinimalSoup(common.getHTML(common.args.url))  
         seasons=tree.findAll('td', attrs={"class":re.compile('^vex')})
         #flatten seasons by settings
         if common.settings['flat_season'] == 1 or (len(seasons) == 1 and common.settings['flat_season'] == 0):
@@ -168,7 +171,7 @@ class Main:
         currentSeason=p.findall(common.args.name)[0]
         epRSS=None
         #parse html tree
-        tree=BeautifulSoup(common.getHTML(common.args.url))
+        tree=MinimalSoup(common.getHTML(common.args.url))
         rss=tree.findAll('a', attrs={'class':'rss-link'})
         for feed in rss:
             if feed['href'].split('/')[-1]=='episodes':

@@ -4,16 +4,16 @@ import xbmcplugin
 import common
 import re
 import sys
+from dec import hulu_decrypt
 from BeautifulSoup import BeautifulSoup, BeautifulStoneSoup
 
 class Main:
 
     def __init__( self ):
         #select from avaliable streams, then play the file
-        self.play()
+        self.play()        
     
-    def play( self):
-
+    def play( self ):
         #getCID
         print common.args.url
         html=common.getHTML(common.args.url)
@@ -26,9 +26,10 @@ class Main:
         #getPID
         html=common.getHTML(cid)
         cidSoup=BeautifulStoneSoup(html)
-        pid=cidSoup.findAll('pid')[0].contents[0]
+        pid=cidSoup.findAll('pid')[0].contents[0]        
         #getSMIL
-        smilURL = "http://releasegeo.hulu.com/content.select?pid=" + pid + "&mbr=true&format=smil"
+        smilURL = "http://releasegeo.hulu.com/content.select?pid=" + hulu_decrypt(pid) + "&mbr=true&format=smil"
+        print 'HULU --> SMILURL: ' + smilURL
         smilXML=common.getHTML(smilURL)
         smilSoup=BeautifulStoneSoup(smilXML)
         print smilSoup.prettify()

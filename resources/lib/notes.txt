@@ -1,0 +1,18 @@
+QUEUEING
+	http://www.hulu.com/users/add_to_playlist?video_id=2798
+
+FASTER SHOWS/MOVIES LIST
+	include xml file of all shows & movies
+	check them against current when entering directory(all|action & adventure|etc)
+	update only where necessary
+	scrape for episodes & clips each time
+
+TODO
+	search
+	set quality
+	spotlight
+	user feeds
+	browse by channel
+	movie trailers
+	better/custom rss icons
+	

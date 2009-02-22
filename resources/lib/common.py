@@ -67,6 +67,7 @@ if xbmcplugin.getSetting( "resolution_hack" ) == "true" :
 else:
     settings['resolution_hack'] = False
 settings['quality'] = xbmcplugin.getSetting("quality")
+settings['gnash_path'] = xbmcplugin.getSetting("gnash_path")
 #settings login
 settings['login_name'] = xbmcplugin.getSetting( "login_name" )
 settings['login_pass'] = xbmcplugin.getSetting( "login_pass" )

@@ -1,0 +1,6 @@
+XBMC Hulu Plugin using Gnash
+
+This is a fork of the XBMC Hulu plugin that uses Gnash to decrypt the pid.
+
+
+http://xbmc-addons.googlecode.com/svn/trunk/plugins/video/Hulu
